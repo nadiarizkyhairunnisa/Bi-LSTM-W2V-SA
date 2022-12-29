@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>SENTIMENT ANALYSIS REVIEW PRODUCT USING BI-LSTM</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="../Public/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="../Public/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="../Public/css/style.css" rel="stylesheet" />
+    <link href="../Public/css/icheck-bootstrap.css" rel="stylesheet" />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Brand -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+          href="index.html"
+        >
+          <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+          </div>
+          <div class="sidebar-brand-text mx-1">BiLSTM-W2V-SA</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0" />
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Home</span></a
+          >
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="demo.html">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Demo</span></a
+          >
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+        <!-- Divider -->
+
+        <!-- Heading -->
+        <div class="sidebar-heading">Dokumentasi</div>
+        <li class="nav-item active">
+          <a class="nav-link" href="dataset.html">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Dataset</span></a
+          >
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="modeling.html">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Model</span></a
+          >
+        </li>
+
+        <hr class="sidebar-divider d-none d-md-block" />
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <div class="header">
+              <header class="h2 mb-4 text-gray-800">
+                Bi-LSTM & Word2Vec Product Review Sentiment Analysis
+              </header>
+              <!-- <br><br> -->
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+              <div class="col-lg-12 mb-4">
+                <!-- First Card -->
+                <div class="card shadow mb-4">
+                  <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                  >
+                    <h5 class="m-0 font-weight-bold text-dark">
+                      Abstrak Penelitian
+                    </h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="paragraph col-lg-12 col-12">
+                        <p>
+                          Analisis sentimen adalah bidang komputasional yang
+                          mempelajari tentang opini, sentimen, emosi, dan
+                          perilaku manusia terhadap entitas dan atribut yang
+                          diekspresikan melalui teks tertulis. Analisis sentimen
+                          berperan besar bagi perusahaan atau organisasi karena
+                          pendapat publik mengenai produk dan layanan mereka
+                          sangat berharga untuk dijadikan evaluasi dan strategi
+                          bisnis. Pada penelitian ini, dikembangkan sistem yang
+                          dapat mengklasifikasikan sentimen ulasan produk
+                          menggunakan metode Bidirectional Long Short-Term
+                          Memory (Bi-LSTM) dan Word Embedding, yaitu Word2Vec
+                          sebagai embedding layer. Pengembangan sistem
+                          menggunakan dua model, yaitu base model yang
+                          konfigurasi parameternya sama dengan model CNN yang
+                          digunakan pada penelitian sebelumnya, dan tuned model
+                          yang konfigurasi parameternya berdasarkan hasil
+                          hyperparameter tuning. Hasil penelitian menunjukkan
+                          model kedua memiliki performa terbaik pada keempat
+                          metrik dengan nilai akurasi 90.33%, precision 99.41%,
+                          recall 90.29%, dan F1-Score 94.61%. Dibandingkan
+                          penelitian sebelumnya, sistem yang dibangun memperoleh
+                          akurasi dan recall yang lebih rendah dengan selisih
+                          masing-masing 3.15% dan 0.94%, tetapi memiliki
+                          precision dan F1-Score yang lebih tinggi dengan
+                          selisih masing-masing 8.18% dan 3.43%.
+                        </p>
+                        <p>
+                          Kata Kunci: Pemrosesan Bahasa Alami, Sentimen
+                          Analisis, Ulasan Produk, Bidirectional Long Short
+                          Term-Memory, Word Embedding
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End of First Card -->
+                <!-- Second Card -->
+                <div class="card shadow mb-4">
+                  <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                  >
+                    <h5 class="m-0 font-weight-bold text-dark">
+                      Deskripsi Penelitian
+                    </h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="paragraph col-lg-12 col-12">
+                        <div class="imagescaled">
+                          <img
+                            src="../Assets/Image/research-pipeline_final.png"
+                            class="center"
+                          />
+                        </div>
+                        <p>
+                          Penelitian ini menjelaskan implementasi sentimen
+                          analisis menggunakan metode Bidirectional Long
+                          Short-Term Memory dan Word2Vec. Data yang digunakan
+                          adalah data sekunder yang diambil dari peneliti
+                          sebelumnya, yaitu ulasan pada situs e-commerce Lazada.
+                          Bahasa pemrograman yang digunakan untuk penelitian ini
+                          adalah Python. Pra pengolahan teks dilakukan
+                          menggunakan pustaka Python seperti Regular Expression,
+                          Sastrawi, NLTK, Swifter, dan yang lainnya.
+                        </p>
+                        <p>
+                          Untuk proses ekstraksi fitur, digunakan Word2Vec
+                          Embedding yang akan dilatih pada corpus Wikipedia
+                          berbahasa Indonesia yang tersedia secara publik di
+                          laman Wikimedia. Corpus akan melalui proses pelatihan
+                          menggunakan pustaka Gensim yang juga telah tersedia
+                          secara publik, untuk mempersingkat waktu pelatihan
+                          digunakan Cython yang dapat mempercepat training loop.
+                          Setelah model Word2Vec telah berhasil dibuat,
+                          dilakukan proses pelatihan model Bi-LSTM. Untuk proses
+                          pelatihan model, pustaka Scikit-Learn, Keras dan
+                          Tensorflow digunakan untuk proses inisialisasi dan
+                          pelatihan forward layer dan backward layer Bi-LSTM.
+                        </p>
+                        <br /><br />
+                        <center>Powered by</center>
+                        <div class="center-content">
+                          <img src="../Assets/Image/logo-aird.jpeg" />
+                          <img src="../Assets/Image/logo-unsri.png" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End of Second Card -->
+              </div>
+            </div>
+            <!-- End of First Row -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <!-- <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; All Right Reserved</span>
+            </div>
+          </div>
+        </footer> -->
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../Public/vendor/jquery/jquery.min.js"></script>
+    <script src="../Public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../Public/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <script></script>
+  </body>
+</html>

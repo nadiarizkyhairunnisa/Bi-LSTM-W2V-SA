@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>SENTIMENT ANALYSIS REVIEW PRODUCT USING BI-LSTM</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="../Public/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="../Public/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="../Public/css/style.css" rel="stylesheet" />
+    <link href="../Public/css/icheck-bootstrap.css" rel="stylesheet" />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Brand -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+          href="index.html"
+        >
+          <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+          </div>
+          <div class="sidebar-brand-text mx-1">Bi-LSTM-W2V-SA</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0" />
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Home</span></a
+          >
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="demo.html">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Demo</span></a
+          >
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+        <!-- Divider -->
+
+        <!-- Heading -->
+        <div class="sidebar-heading">Dokumentasi</div>
+        <li class="nav-item active">
+          <a class="nav-link" href="dataset.html">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Dataset</span></a
+          >
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="modeling.html">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Modeling</span></a
+          >
+        </li>
+
+        <hr class="sidebar-divider d-none d-md-block" />
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <div class="header">
+              <h1 class="h2 mb-4 text-gray-800">
+                Bi-LSTM & Word2Vec Product Review Sentiment Analysis
+              </h1>
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+              <div class="col-lg-12 mb-4">
+                <!-- First Card -->
+                <div class="card shadow mb-4">
+                  <div class="card-body">
+                    <div class="form-input">
+                      <h6 class="option-form text-dark">Ulasan</h6>
+                      <input
+                        name="ulasan"
+                        id="ulasan"
+                        class="form-control"
+                        type="text"
+                        placeholder="Produk bagus, pengiriman cepat, dan penjual ramah"
+                      />
+                    </div>
+                    <br />
+                    <h6 class="option-form">Prapengolahan Teks</h6>
+                    <div class="radio icheck-default">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radioPreproc"
+                        id="radioPreproc1"
+                        value="1"
+                        checked
+                      />
+                      <label class="form-check-label" for="radioPreproc1">
+                        Text Cleaning
+                      </label>
+                    </div>
+                    <div class="radio icheck-default">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radioPreproc"
+                        id="radioPreproc2"
+                        value="2"
+                        unchecked
+                      />
+                      <label class="form-check-label" for="radioPreproc2">
+                        Text Cleaning - Word Correction - Stemming - Stopword
+                        Removal
+                      </label>
+                    </div>
+                    <br />
+                    <h6 class="option-form">Model</h6>
+                    <div class="radio icheck-default">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radioModel"
+                        id="radioModel1"
+                        value="1"
+                        checked
+                      />
+                      <label class="form-check-label" for="radioModel1">
+                        Base Model
+                      </label>
+                    </div>
+                    <div class="radio icheck-default">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radioModel"
+                        id="radioModel2"
+                        value="2"
+                        unchecked
+                      />
+                      <label class="form-check-label" for="radioModel2">
+                        Tuned Model
+                      </label>
+                    </div>
+                    <div class="submit">
+                      <br />
+                      <button
+                        type="button"
+                        class="btn btn-dark"
+                        name="submit"
+                        id="submit"
+                      >
+                        Submit
+                      </button>
+                      <button
+                        type="reset"
+                        class="btn btn-light"
+                        name="reset"
+                        id="reset"
+                      >
+                        Reset
+                      </button>
+                    </div>
+                    <div class="result">
+                      <div name="ulasan" id="ulasan"></div>
+                      <div name="result" id="result"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End of First Card -->
+              </div>
+            </div>
+            <!-- End of Content Row -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <!-- <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; All Right Reserved</span>
+            </div>
+          </div>
+        </footer> -->
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../Public/vendor/jquery/jquery.min.js"></script>
+    <script src="../Public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../Public/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- hit API Script -->
+    <script src="../Public/js/demoScript.js"></script>
+  </body>
+</html>

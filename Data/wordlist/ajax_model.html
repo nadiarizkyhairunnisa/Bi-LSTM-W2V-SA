@@ -1,0 +1,48 @@
+<script>
+        $(document).ready(function(){
+            $("#load_data, #load_data_2").click(function(e){
+                e.preventDefault();
+                data = {data_option: $(this.id).val()}
+                console.log("data_option before ajax:", data)
+                $.ajax({
+                    type: "POST",
+                    url:"http://127.0.0.1:5000/modeling",
+                    data:data,
+                    dataType:"json",
+                    success: function(data) {
+                        console.log("data_option after 1st ajax:", data);
+                        // use the response to from get request (path of csv file) as url 
+                        $.ajax({
+                            type: "GET",
+                            url: data.data_url ,
+                            dataType:"text",
+                            success:function(data){
+                                var evaluation_data = data.split(/\r?\n|\r/);
+                                var table_data = '<table class="table table-bordered evaluation" id="dataTable">';
+
+                                for(var count = 0; count<evaluation_data.length; count++){
+                                    var cell_data = evaluation_data[count].split(",");
+                                    table_data += '<tr>';
+                                    for(var cell_count=0; cell_count<cell_data.length; cell_count++){
+                                        if(count === 0) {
+                                        table_data += '<th>'+cell_data[cell_count]+'</th>';
+                                        } else {
+                                        table_data += '<td>'+cell_data[cell_count]+'</td>';
+                                        }
+                                    }
+                                    table_data += '</tr>';
+                                }
+                                table_data += '</table>';
+                                $('#data_table').html(table_data);
+                            }           
+                        });
+                    }
+                })
+            });
+        });
+
+        $("#hide").click(function (e) {
+            e.preventDefault();
+            $("#data_table").empty()
+        });
+    </script>
